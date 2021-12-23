@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+{% block title %}Result{% endblock %}
+{% block content %}
+    <div class="row mt-5 justify-content-center">
+        <h5 class="text-center">Kata Kunci : <span class="badge badge-info">{{ keyword }}</span></h5>
+    </div>
+    <div class="row mt-5">
+        <div class="col-lg-4">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th scope="col" class="text-center">
+                        <h5>Positive</h5>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="text-center text-primary"><b>{{ result.pos }}</b></td>
+                </tr>
+                {% for tweet in result.positive_tweets %}
+                    <tr>
+                        <td>{{ tweet }}
+                            {#                            <div class="mt-2">#}
+                            {#                                <select name="" id="" class="form-control-sm">#}
+                            {#                                    <option value="">Positive</option>#}
+                            {#                                    <option value="">Negative</option>#}
+                            {#                                </select>#}
+                            {#                            </div>#}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-4">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th scope="col" class="text-center">
+                        <h5>Negative</h5>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="text-center text-primary"><b>{{ result.neg }}</b></td>
+                </tr>
+                {% for tweet in result.negative_tweets %}
+                    <tr>
+                        <td>{{ tweet }}
+                            {#                            <div class="mt-2">#}
+                            {#                                <select name="" id="" class="form-control-sm">#}
+                            {#                                    <option value="">Positive</option>#}
+                            {#                                    <option value="">Negative</option>#}
+                            {#                                </select>#}
+                            {#                            </div>#}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-4">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+    <script>
+        let ctx = document.getElementById("myChart");
+        let myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ["Positive", "Negative"],
+                datasets: [{
+                    label: 'Sentiment Analisis Result',
+                    data: [
+                        {{ result.pos }}, {{ result.neg }}
+                    ],
+                    backgroundColor: [
+                        '#298f9b',
+                        '#f5564e'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+{% endblock %}

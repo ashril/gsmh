@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block title %}Pencarian Kata Kunci{% endblock %}
+{% block content %}
+    <div class="row mt-5">
+        <div class="col-12">
+            <form class="form-inline justify-content-center" action="{{ url_for('search') }}" method="POST">
+                <div class="form-row align-items-center">
+                    <div class="col-auto">
+                        <input class="form-control mb-2" id="inputKeyword" name="inputKeyword"
+                               placeholder="Masukkan Kata Kunci"
+                               type="text">
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" name="action" class="btn btn-primary mb-2">Cari</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+

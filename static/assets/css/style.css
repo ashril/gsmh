@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    font-family: 'Lato', sans-serif;
+    height: 100%;
+}
+
+
+.nav-link:last-child {
+    margin-right: 0;
+}
+
+.btn-primary {
+    background-color: #474f85 !important;
+    border: none;
+}
+
+*:focus {
+    outline: none;
+}
+
+td {
+    word-break: break-all !important;
+    font-family: 'Roboto', sans-serif;
+}
+
+table {
+    table-layout: fixed !important;
+}
+
+.kab-logo {
+    float: left;
+}
+
+.card {
+    box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.15) !important;
+}
+
+footer {
+    position: absolute;
+    left: 0px;
+    /*bottom: 0px;*/
+    width: 100%;
+}
+
+.container-fluid {
+    margin-bottom: 50px !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lato', sans-serif !important;
+}
+
+body > .container {
+    /*padding-top: 60px;*/
+}
+
+li {
+    list-style: none;
+}
+
+@keyframes spin-horizontal {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+}
+.image-rotate-horizontal{
+    animation: spin-horizontal infinite linear;
+    animation-duration: 3s;
+
+}
+

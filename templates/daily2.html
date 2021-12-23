@@ -1,0 +1,124 @@
+{% extends "layout.html" %}
+{% block title %}Daily Sentiments{% endblock %}
+{% block content %}
+    <div class="row mt-5">
+        <div class="col-lg-6">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th colspan="2" class="text-center"><h5>Positive</h5></th>
+                </tr>
+{#                <tr>#}
+{#                    <th colspan="2" class="text-center">#}
+{#                        Tweets#}
+{#                    </th>#}
+{#                </tr>#}
+                </thead>
+                <tbody class="ul-animate-gsmh">
+                {% for row in result[0] %}
+                    <tr class="li-animate-gsmh">
+                        <td colspan="2">
+                            <ul>
+                                <li>@{{ row[2] }}</li>
+                                <li>{{ row[3] }}</li>
+                            </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-6">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th colspan="2" class="text-center"><h5>Negative</h5></th>
+                </tr>
+{#                <tr>#}
+{#                    <th colspan="2" class="text-center">#}
+{#                        Tweets#}
+{#                    </th>#}
+{#                </tr>#}
+                </thead>
+                <tbody class="ul-animate-gsmh2">
+                {% for row in result[1] %}
+                    <tr class="li-animate-gsmh2">
+                        <td colspan="2">
+                            <ul>
+                                <li>@{{ row[2] }}</li>
+                                <li>{{ row[3] }}</li>
+                            </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{#    <div class="row mt-5">#}
+{#        <div class="col text-center">#}
+{#            <form action="/get_crawl" method="post">#}
+{#                <button type="submit" class="btn btn-primary">Get Dataset</button>#}
+{#            </form>#}
+{#        </div>#}
+{#    </div>#}
+    <br>
+    <br>
+
+
+    <script type="text/javascript">
+
+        var gsmhsteps = 1;
+
+        function loadAll() {
+            gsmh();
+            gsmh2();
+        }
+
+
+        //fungsi main
+        loadAll();
+        var no = 0;
+        setInterval(function () {
+            loadAll();
+            // console.log(no += 1);
+        }, 60000 * 5);
+
+
+        //60000 = 1 menit
+
+        function gsmh() {
+            var gsmhtop = '-=' + (gsmhsteps * $('.li-animate-gsmh').height()) + 'px';
+            var gsmhlis = $('.li-animate-gsmh:lt(' + gsmhsteps + ')');
+            var gsmhclones = $(gsmhlis).clone();
+            gsmhclones.appendTo('.ul-animate-gsmh');
+            $.when(
+                $('.li-animate-gsmh').animate({top: gsmhtop}, 'slow')
+            ).done(function () {
+                gsmhclones.remove();
+                gsmhlis.appendTo('.ul-animate-gsmh');
+                $('.li-animate-gsmh').css('top', 'auto');
+                setTimeout(gsmh, 5000);
+            });
+        }
+
+        function gsmh2() {
+            var gsmhtop2 = '-=' + (gsmhsteps * $('.li-animate-gsmh2').height()) + 'px';
+            var gsmhlis2 = $('.li-animate-gsmh2:lt(' + gsmhsteps + ')');
+            var gsmhclones2 = $(gsmhlis2).clone();
+            gsmhclones2.appendTo('.ul-animate-gsmh2');
+            $.when(
+                $('.li-animate-gsmh2').animate({top: gsmhtop2}, 'slow')
+            ).done(function () {
+                gsmhclones2.remove();
+                gsmhlis2.appendTo('.ul-animate-gsmh2');
+                $('.li-animate-gsmh2').css('top', 'auto');
+                setTimeout(gsmh2, 5000);
+            });
+        }
+
+
+    </script>
+
+{% endblock %}
+

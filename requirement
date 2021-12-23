@@ -1,0 +1,7 @@
+sudo apt-get install python2.7
+sudo apt-get install pip
+pip install Flask
+pip install flask-mysql
+pip install nltk
+pip install sastrawi
+pip install twython

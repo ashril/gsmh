@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+{% block title %}Trending{% endblock %}
+{% block content %}
+    {#    <div class="row mt-3">#}
+    {#        <div class="col-lg-7">#}
+    {#            <div class="mx-auto">#}
+    {#                <h4 class="text-center">Graph Top NTB Trending Topic</h4>#}
+    {#            </div>#}
+    {#            <canvas id="trendingBar"></canvas>#}
+    {#        </div>#}
+    <div class="col">
+        {#            <div class="mx-auto">#}
+        {#                <h4 class="text-center">Top NTB Trending Topic</h4>#}
+        {#            </div>#}
+        <div class="mt-5">
+            <form class="form-inline justify-content-center" action="{{ url_for('get_daily') }}" method="POST">
+                <button type="submit" name="action" class="btn btn-primary mb-2">Update Daily Trending Topik</button>
+            </form>
+        </div>
+        <div class="mt-5">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    {#                        <th width="1%">No</th>#}
+                    <th width="7%">Topik</th>
+                    <th width="3%">Frequency</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                {#                    {% for row in result %}#}
+                <tr>
+                    {#                            <td>#}
+                    {#                                {{ loop.index }}#}
+                    {#                            </td>#}
+                    {#                            <td>{{ row.2 }}</td>#}
+                </tr>
+                {#                    {% endfor %}#}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        function chart() {
+            var ctx = document.getElementById("trendingBar");
+            var myChart = new Chart(ctx, {
+                type: 'horizontalBar',
+                data: {
+                    labels: [
+                        {% for row in result %},
+                            "{{ row.1 }}",
+                        {% endfor %}
+                    ],
+                    datasets: [{
+                        label: 'Trending Hari Ini',
+                        data: [
+                            {% for row in result %},
+                                "{{ row.2 }}",
+                            {% endfor %}
+                        ],
+                        backgroundColor: [
+                            "#9602d6", "#9602d6", "#7e54bc", "#7e54bc", "#5862ce", "#5862ce", "#1c69ce", "#1c69ce", "#0057f9", "##0057f9", "#1cc8ce", "#1cc8ce"
+                        ],
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true,
+                            }
+                        }]
+                    },
+                    legend: {
+                        display: false,
+                    }
+                }
+            });
+        }
+    </script>
+{% endblock %}

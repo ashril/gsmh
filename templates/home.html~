@@ -1,0 +1,388 @@
+{% extends "layout.html" %}
+{% block title %}Trending Topic{% endblock %}
+{% block content %}
+    <div id="example">
+        <ul>
+            <li>
+                <div class="row mt-3">
+                    <div class="col-lg-7">
+                        <div class="mx-auto">
+                            <h4 class="text-center">Graph Top NTB Trending Topic</h4>
+                        </div>
+                        <canvas id="trendingBar"></canvas>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="mx-auto">
+                            <h4 class="text-center">Top NTB Trending Topic</h4>
+                        </div>
+                        <div class="mt-5">
+                            <table class="table table-borderless table-sm table-striped">
+                                <thead>
+                                <tr>
+                                    <th width="1%">No</th>
+                                    <th width="7%">Topik</th>
+                                    <th width="3%">Frequency</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                {% for row in result[0] %}
+                                    <tr>
+                                        <td>
+                                            {{ loop.index }}
+                                        </td>
+                                        <td>{{ row[3] }}</td>
+                                        <td>{{ row[4] }}</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="row mt-3">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-head p-3">
+                                <img src="/static/assets/image/Lambang_Kota_Mataram.png" alt="Kota Mataram"
+                                     width=50" height="auto"
+                                     class="float-left mr-3">
+                                <h5 class="card-title pt-3 ml-5">Kota Mataram</h5>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-borderless table-sm table-striped">
+                                    <thead>
+                                    <tr>
+                                    <th width="7%">Trending</th>
+                                    <th width="3%">Frequency</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for row in result[1] %}
+                                        <tr>
+                                            <td>{{ row[1] }}</td>
+                                            <td>{{ row[2] }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-head p-3">
+                                <img src="/static/assets/image/Lambang_Kabupaten_Lombok_Tengah.gif"
+                                     alt="Kabupaten Lombok Tengah"
+                                     width=50" height="auto" class="float-left mr-3">
+                                <h5 class="card-title pt-3 ml-5">Kabupaten Lombok Tengah</h5>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-borderless table-sm table-striped">
+                                    <thead>
+                                    <tr>
+                                    <th width="7%">Trending</th>
+                                    <th width="3%">Frequency</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for row in result[2] %}
+                                        <tr>
+                                            <td>{{ row[1] }}</td>
+                                            <td>{{ row[2] }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="row mt-3">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-head p-3">
+                                <img src="/static/assets/image/Lambang_Kabupaten_Lombok_Barat.jpeg"
+                                     alt="Kabupaten Lombok Barat"
+                                     width=50" height="auto" class="float-left mr-3">
+                                <h5 class="card-title pt-3 ml-5">Kabupaten Lombok Barat</h5>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-borderless table-sm table-striped">
+                                    <thead>
+                                    <tr>
+                                    <th width="7%">Trending</th>
+                                    <th width="3%">Frequency</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for row in result[3] %}
+                                        <tr>
+                                            <td>{{ row[1] }}</td>
+                                            <td>{{ row[2] }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-head p-3">
+                                <img src="/static/assets/image/Lambang_Kabupaten_Lombok_Utara.png"
+                                     alt="Kabupaten Lombok Utara"
+                                     width=50" height="auto" class="float-left mr-3">
+                                <h5 class="card-title pt-3 ml-5">Kabupaten Lombok Utara</h5>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-borderless table-sm table-striped">
+                                    <thead>
+                                    <tr>
+                                    <th width="7%">Trending</th>
+                                    <th width="3%">Frequency</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for row in result[4] %}
+                                        <tr>
+                                            <td>{{ row[1] }}</td>
+                                            <td>{{ row[2] }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="row mt-3">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-head p-3">
+                                <img src="/static/assets/image/Lambang_Kabupaten_Lombok_Timur.jpg"
+                                     alt="Kabupaten Lombok Timur"
+                                     width=50" height="auto" class="float-left mr-3">
+                                <h5 class="card-title pt-3 ml-5">Kabupaten Lombok Timur</h5>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-borderless table-sm table-striped">
+                                    <thead>
+                                    <tr>
+                                    <th width="7%">Trending</th>
+                                    <th width="3%">Frequency</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for row in result[5] %}
+                                        <tr>
+                                            <td>{{ row[1] }}</td>
+                                            <td>{{ row[2] }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-head p-3">
+                                <img src="/static/assets/image/Lambang_Kabupaten_Sumbawa.png" alt="Kabupaten Sumbawa"
+                                     width=50"
+                                     height="auto" class="float-left mr-3">
+                                <h5 class="card-title pt-3 ml-5">Kabupaten Sumbawa</h5>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-borderless table-sm table-striped">
+                                    <thead>
+                                    <tr>
+                                    <th width="7%">Trending</th>
+                                    <th width="3%">Frequency</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for row in result[6] %}
+                                        <tr>
+                                            <td>{{ row[1] }}</td>
+                                            <td>{{ row[2] }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="row mt-3">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-head p-3">
+                                <img src="/static/assets/image/Lambang_Kabupaten_Sumbawa_Barat.png"
+                                     alt="Kabupaten Sumbawa Barat"
+                                     width=50" height="auto" class="float-left mr-3">
+                                <h5 class="card-title pt-3 ml-5">Kabupaten Sumbawa Barat</h5>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-borderless table-sm table-striped">
+                                    <thead>
+                                    <tr>
+                                    <th width="7%">Trending</th>
+                                    <th width="3%">Frequency</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for row in result[7] %}
+                                        <tr>
+                                            <td>{{ row[1] }}</td>
+                                            <td>{{ row[2] }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-head p-3">
+                                <img src="/static/assets/image/Lambang_Kabupaten_Bima.png" alt="Kabupaten Bima"
+                                     width=50"
+                                     height="auto" class="float-left mr-3">
+                                <h5 class="card-title pt-3 ml-5">Kabupaten Bima</h5>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-borderless table-sm table-striped">
+                                    <thead>
+                                    <tr>
+                                    <th width="7%">Trending</th>
+                                    <th width="3%">Frequency</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for row in result[8] %}
+                                        <tr>
+                                            <td>{{ row[1] }}</td>
+                                            <td>{{ row[2] }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="row mt-3">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-head p-3">
+                                <img src="/static/assets/image/COA_Bima.jpg" alt="Kota Bima" width=50" height="auto"
+                                     class="float-left mr-3">
+                                <h5 class="card-title pt-3 ml-5">Kota Bima</h5>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-borderless table-sm table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col" width="1%">No</th>
+                                    <th width="7%">Trending</th>
+                                    <th width="3%">Frequency</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for row in result[9] %}
+                                        <tr>
+                                            <td>{{ row.0 }}</td>
+                                            <td>{{ row[1] }}</td>
+                                            <td>{{ row[2] }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-head p-3">
+                                <img src="/static/assets/image/Lambang_Kabupaten_Dompu.jpg" alt="Kabupaten Dompu"
+                                     width=50"
+                                     height="auto" class="float-left mr-3">
+                                <h5 class="card-title pt-3 ml-5">Kabupaten Dompu</h5>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-borderless table-sm table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col" width="1%">No</th>
+                                    <th width="7%">Trending</th>
+                                    <th width="3%">Frequency</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for row in result[10] %}
+                                        <tr>
+                                            <td>{{ row.0 }}</td>
+                                            <td>{{ row[1] }}</td>
+                                            <td>{{ row[2] }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+       function chart() {
+            var ctx = document.getElementById("trendingBar");
+        var myChart = new Chart(ctx, {
+            type: 'horizontalBar',
+            data: {
+                labels: [
+                    {% for row in result[0] %},
+                        "{{ row[1] }}",
+                    {% endfor %}
+                ],
+                datasets: [{
+                    label: 'Trending Hari Ini',
+                    data: [
+                        {% for row in result[0] %},
+                            "{{ row[2] }}",
+                        {% endfor %}
+                    ],
+                    backgroundColor: [
+                        "#9602d6", "#9602d6", "#7e54bc", "#7e54bc", "#5862ce", "#5862ce", "#1c69ce", "#1c69ce", "#0057f9", "##0057f9", "#1cc8ce", "#1cc8ce"
+                    ],
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                        }
+                    }]
+                },
+                legend: {
+                    display: false,
+                }
+            }
+        });
+       }
+    </script>
+{% endblock %}
