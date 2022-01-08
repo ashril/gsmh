@@ -1,21 +1,10 @@
 import tweepy
-# from twython import Twython
 
-# # KEY ASHRIL
-# APP_KEY = 'Z2gdnGoZPlYubERqas5zTVAFO'
-# APP_SECRET = '8H5EntuYeq4gkxdhaZVZk2pmERcoqTlNr0Enys7fw1a1DoXOT2'
-
-
-# twitter = Twython(APP_KEY, APP_SECRET, oauth_version=2)
-# ACCESS_TOKEN = twitter.obtain_access_token()
-
-# twitter = Twython(APP_KEY, access_token=ACCESS_TOKEN)
-
-# ACCESS TOKEN ASHRIL
-consumer_key = 'Z2gdnGoZPlYubERqas5zTVAFO'
-consumer_secret = '8H5EntuYeq4gkxdhaZVZk2pmERcoqTlNr0Enys7fw1a1DoXOT2'
-access_token = '297272903-eLDCXtTCFK4rKlp6uk1w8yIvHkJ4Wvpk3KteRck9'
-access_token_secret = 'f97dxy7Ok9JekRyP4k7um7ZnxS8TwfNsS2Az4yE5ETClg'
+# ACCESS TOKEN 
+consumer_key = ''
+consumer_secret = ''
+access_token = ''
+access_token_secret = ''
 
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
